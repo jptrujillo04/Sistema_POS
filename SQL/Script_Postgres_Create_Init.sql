@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS sispos.permissions (
   id_company int NOT NULL,
   permissions_name varchar(45) NOT NULL,
   status varchar(3) DEFAULT NULL,
-  CONSTRAINT "fk_Permissions_Companies" FOREIGN KEY ("id_company") REFERENCES companies ("id_company") ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT "fk_Permissions_Companies" FOREIGN KEY ("id_company") REFERENCES sispos.companies ("id_company") ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
 CREATE TABLE IF NOT EXISTS sispos.roles (
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS sispos.roles (
   status varchar(3) NOT NULL,
   register_user varchar(30) NOT NULL,
   register_date TIMESTAMP DEFAULT NULL,
-  CONSTRAINT "fk_Roles_Companies" FOREIGN KEY ("id_company") REFERENCES companies ("id_company")
+  CONSTRAINT "fk_Roles_Companies" FOREIGN KEY ("id_company") REFERENCES sispos.companies ("id_company")
 );
 
 CREATE TABLE IF NOT EXISTS sispos.roles_permissions (
