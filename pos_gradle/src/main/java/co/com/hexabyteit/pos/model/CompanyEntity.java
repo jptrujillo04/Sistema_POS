@@ -11,25 +11,25 @@ import javax.persistence.*;
 @Data
 @Entity
 @Builder(toBuilder = true)
-@Table(name = CompanyConstant.TABLE_ORDER, schema="sispos")
+@Table(name = CompanyConstant.TABLE_COMPANY, schema="sispos")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Company {
+public class CompanyEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_company")
     private Long idCompany;
 
-    @Column(name = "company_name")
+    @Column(name = "company_name", unique = true, length = 150)
     private String companyName;
 
     @Column(name = "status")
     private String status;
 
-    @Column(name = "nit")
+    @Column(name = "nit", length = 20)
     private String nit;
 
-    @Column(name = "verification_digit")
+    @Column(name = "verification_digit", length = 2)
     private String verificationDigit;
 }

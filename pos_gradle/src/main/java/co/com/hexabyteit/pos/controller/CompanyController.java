@@ -15,18 +15,18 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 @RequestMapping("v0")
 @Slf4j
-public class Login {
+public class CompanyController {
     @Autowired
     private CompanyService companyService;
 
-    @GetMapping("/status")
+    @GetMapping("company/status")
     public String status(){
-        return "Funciona correctamente";
+        return "Funciona correctamente CompanyController";
     }
 
-    @GetMapping("/companies")
+    @GetMapping("company/companies")
     public ResponseEntity<ResponseListCompany> getCompanies(){
-        log.info("Controlador companies");
+        log.info("Controlador company/companies");
         return new ResponseEntity<>(companyService.getListCompanies(), HttpStatus.OK);
     }
 }
